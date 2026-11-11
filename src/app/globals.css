@@ -3,69 +3,98 @@
 @tailwind utilities;
 
 :root {
-  --background: 222 47% 7%;
+  --background: 224 71% 2%;
   --foreground: 210 40% 98%;
-  --card: 222 47% 10%;
+  --card: 222 47% 4%;
   --card-foreground: 210 40% 98%;
-  --popover: 222 47% 10%;
-  --popover-foreground: 210 40% 98%;
-  --primary: 199 89% 48%;
-  --primary-foreground: 210 40% 98%;
-  --secondary: 217 33% 17%;
-  --secondary-foreground: 210 40% 98%;
-  --muted: 217 33% 17%;
-  --muted-foreground: 215 20% 65%;
-  --accent: 142 71% 45%;
-  --accent-foreground: 210 40% 98%;
-  --destructive: 0 63% 31%;
-  --destructive-foreground: 210 40% 98%;
-  --border: 217 33% 20%;
-  --input: 217 33% 20%;
-  --ring: 199 89% 48%;
+  --border: 220 35% 12%;
+  --input: 220 35% 12%;
+  --primary: 160 100% 50%;
+  --primary-foreground: 224 71% 2%;
+  --telemetry-cyan: #00e5ff;
+  --phosphor-emerald: #00ff9d;
+  --gallium-amber: #ffb300;
+  --laser-crimson: #ff0055;
+  --substrate-void: #020408;
+  --substrate-tile: #070c14;
 }
 
 body {
-  background-color: #080c14;
+  background-color: var(--substrate-void);
   color: #e2e8f0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "JetBrains Mono", monospace;
   overflow-x: hidden;
+  letter-spacing: -0.01em;
 }
 
-/* Custom Silicon Grid Background */
-.silicon-grid {
-  background-size: 32px 32px;
+/* Precision Cleanroom Micro-Grid */
+.telemetry-grid {
+  background-size: 24px 24px;
   background-image: 
-    linear-gradient(to right, rgba(56, 189, 248, 0.05) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(56, 189, 248, 0.05) 1px, transparent 1px);
+    linear-gradient(to right, rgba(0, 229, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 229, 255, 0.035) 1px, transparent 1px);
 }
 
-/* React Flow Canvas Dark Overrides */
+/* Subtle CRT Telemetry Scanline (Non-intrusive, avant-garde) */
+.scanline-overlay {
+  background: linear-gradient(
+    rgba(18, 16, 16, 0) 50%, 
+    rgba(0, 0, 0, 0.25) 50%
+  );
+  background-size: 100% 4px;
+  pointer-events: none;
+}
+
+/* Monospace Telemetry Numbers */
+.font-telemetry {
+  font-family: "JetBrains Mono", "SF Mono", Consolas, Menlo, Monaco, monospace;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Specular Hairline Borders */
+.border-specular {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.border-specular-active {
+  border: 1px solid rgba(0, 229, 255, 0.4);
+  box-shadow: 0 0 15px -3px rgba(0, 229, 255, 0.15);
+}
+
+/* React Flow Canvas Dark Precision Overrides */
 .react-flow__background {
-  background-color: #080c14 !important;
+  background-color: #020408 !important;
 }
 
 .react-flow__controls button {
-  background-color: #111827 !important;
-  color: #e2e8f0 !important;
-  border-bottom: 1px solid #1f293d !important;
+  background-color: #070c14 !important;
+  color: #94a3b8 !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
 }
 
 .react-flow__controls button:hover {
-  background-color: #1e293b !important;
+  background-color: #0c1424 !important;
+  color: #00e5ff !important;
 }
 
-/* Custom Scrollbar */
+.react-flow__minimap {
+  background-color: #070c14 !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  border-radius: 8px !important;
+}
+
+/* Telemetry Scrollbar */
 ::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
+  width: 5px;
+  height: 5px;
 }
 ::-webkit-scrollbar-track {
-  background: #090d16;
+  background: #020408;
 }
 ::-webkit-scrollbar-thumb {
   background: #1e293b;
-  border-radius: 3px;
+  border-radius: 2px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #334155;
+  background: #00e5ff;
 }

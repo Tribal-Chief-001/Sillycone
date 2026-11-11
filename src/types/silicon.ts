@@ -25,6 +25,16 @@ export interface FoundryNode {
   hvmYear: number;
 }
 
+export interface PackagingSubstrate {
+  id: string;
+  slug: string;
+  name: string;
+  type: '2D_Monolithic' | '2.5D_Interposer' | '3D_Stacked' | 'FanOut_Wafer';
+  vendor: string;
+  interconnectPitchUm: number;
+  maxBandwidthTbS: number;
+}
+
 export interface Microarchitecture {
   id: string;
   slug: string;
@@ -32,6 +42,7 @@ export interface Microarchitecture {
   designer: string;
   isa: string;
   foundryNodeId?: string;
+  packagingSubstrateId?: string;
   ipcGainClaim: string;
   keyInnovations: string[];
 }
@@ -62,6 +73,14 @@ export interface BenchmarkScore {
   powerWattage?: number;
   sampleType: 'early_leak' | 'engineering_sample' | 'retail_tested';
   testDevice: string;
+}
+
+export interface PowerEfficiencyParams {
+  staticLeakageW: number;
+  capacitanceDynamicFactor: number;
+  maxVoltageV: number;
+  nominalVoltageV: number;
+  baseFrequencyGhz: number;
 }
 
 export interface LeakDeltaRecord {
@@ -98,5 +117,20 @@ export interface Chip {
   topologies: ChipTopology[];
   memory: MemorySpec;
   benchmarks: BenchmarkScore[];
+  powerParams?: PowerEfficiencyParams;
   leakDeltas?: LeakDeltaRecord[];
+}
+
+export interface LeakerStats {
+  name: string;
+  channel: string;
+  totalTracked: number;
+  accurateCount: number;
+  inMarginCount: number;
+  pendingCount: number;
+  debunkedCount: number;
+  hitRatePercent: number;
+  brierScore: number;
+  wmapeScore: number;
+  lasScore: number; // Leaker Accountability Score (0 - 100)
 }
